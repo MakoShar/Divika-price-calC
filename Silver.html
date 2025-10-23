@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silver Price Calculator • Divika Jewellers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Calculate silver jewelry price by weight, purity, and market rate." />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a class="logo" href="index.html" aria-label="Divika Jewellers Home">
+            <img src="Logo.png" alt="Divika Jewellers Logo" class="logo-img" />
+          </a>
+          <div class="brand-text">
+            <h1>Divika Jewellers</h1>
+            <p class="subtitle">Silver Price Calculator</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="nav">
+            <a class="nav-link" href="gold.html">Gold</a>
+            <a class="nav-link active" href="Silver.html">Silver</a>
+          </nav>
+          <button id="cart-header-btn" class="cart-header-btn" title="View Cart">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container narrow">
+      <section class="calc-card">
+        <h2>Silver Calculator</h2>
+        <form id="silver-form" class="calc-form" autocomplete="on">
+          <div class="form-row">
+            <label for="silver-rate">Market Rate (LR) per gram</label>
+            <div class="input-with-unit">
+              <input id="silver-rate" name="rate" type="number" step="0.01" min="0" placeholder="e.g., 75" required />
+              <div class="btn-inline-group">
+                <span class="unit">per gram</span>
+                <button type="button" id="silver-clear-rate" class="btn btn-ghost" title="Clear today's stored rate">Clear</button>
+              </div>
+            </div>
+            <small class="hint">Enter current silver price per gram in your currency.</small>
+          </div>
+
+          <div class="form-row">
+            <label for="silver-weight">Weight</label>
+            <div class="input-with-unit">
+              <input id="silver-weight" name="weight" type="number" step="0.01" min="0" placeholder="e.g., 50" required />
+              <select id="silver-weight-unit" name="weightUnit" aria-label="Weight unit">
+                <option value="g" selected>g</option>
+                <option value="mg">mg</option>
+                <option value="kg">kg</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="silver-type">Type</label>
+            <select id="silver-type" name="type">
+              <option value="coin">Coin</option>
+              <option value="ornament" selected>Ornament</option>
+              <option value="free">Free</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="silver-purity">Purity (P)</label>
+            <input id="silver-purity" name="purity" type="number" value="1.00" readonly />
+            <small class="hint">Silver purity is always 100%.</small>
+          </div>
+
+          <div class="form-row inline">
+            <label for="silver-making">Making/Wastage (%)</label>
+            <input id="silver-making" name="making" type="number" step="0.01" min="0" max="100" placeholder="Enter %" />
+            <label for="silver-additional" class="ml">Additional Charges</label>
+            <input id="silver-additional" name="additional" type="number" step="0.01" min="0" placeholder="e.g., 100" />
+          </div>
+
+          <div class="action-row">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="reset" class="btn btn-ghost">Reset</button>
+          </div>
+        </form>
+
+        <div id="silver-result" class="result" aria-live="polite"></div>
+        <div class="action-row mt-10 hidden" id="cart-actions">
+          <button type="button" class="btn btn-secondary" id="add-to-cart">Add to Cart</button>
+        </div>
+        <div id="cart-section" class="mt-24 hidden">
+          <h3>Cart</h3>
+          <ul id="cart-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+  <small>© <span id="year"></span> Divika Jewellers. Estimates only.</small>
+      </div>
+    </footer>
+
+    <!-- Cart Drawer and Overlay -->
+    <div id="overlay" class="overlay hidden" aria-hidden="true"></div>
+    <aside id="cart-drawer" class="cart-drawer hidden" aria-hidden="true" aria-label="Cart Drawer">
+      <div class="cart-drawer-header">
+        <h3>Your Cart</h3>
+        <button id="drawer-close" class="btn btn-ghost" aria-label="Close">✕</button>
+      </div>
+      <div id="drawer-list" class="cart-drawer-body"></div>
+      <div class="cart-drawer-footer">
+        <a href="cart.html" class="btn btn-primary" id="view-full-cart">View full cart</a>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+  </html>

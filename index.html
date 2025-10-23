@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Divika Jewellers Price Calculator</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="description" content="Quickly estimate gold and silver jewelry prices. Choose Gold or Silver calculator." />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<div class="brand">
+					<a class="logo" href="index.html" aria-label="Divika Jewellers Home">
+						<img src="Logo.png" alt="Divika Jewellers Logo" class="logo-img" />
+					</a>
+					<div class="brand-text">
+						<h1>Divika Jewellers</h1>
+						<p class="subtitle">Jewelry Price Calculator</p>
+					</div>
+				</div>
+				<nav class="nav">
+					<a class="nav-link" href="gold.html">Gold</a>
+					<a class="nav-link" href="Silver.html">Silver</a>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="hero-copy">
+						<h2>Estimate jewelry prices in seconds</h2>
+						<p>
+							Choose a calculator to estimate prices based on weight, purity, and market rate.
+						</p>
+						<div class="cta-row">
+							<a href="gold.html" class="btn btn-primary">Gold Calculator</a>
+							<a href="Silver.html" class="btn btn-secondary">Silver Calculator</a>
+						</div>
+					</div>
+					<div class="hero-card-grid">
+						<a class="card" href="gold.html" aria-label="Go to Gold Calculator">
+							<div class="card-icon">🥇</div>
+							<div class="card-content">
+								<h3>Gold</h3>
+								<p>Supports common karats: 24k, 22k, 18k, 14k.</p>
+							</div>
+							<span class="card-arrow" aria-hidden="true">→</span>
+						</a>
+						<a class="card" href="Silver.html" aria-label="Go to Silver Calculator">
+							<div class="card-icon">🥈</div>
+							<div class="card-content">
+								<h3>Silver</h3>
+								<p>Sterling (92.5) and Fine (99.9) silver purity options.</p>
+							</div>
+							<span class="card-arrow" aria-hidden="true">→</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="info container">
+				<h3>How it works</h3>
+				<ol class="steps">
+					<li>Pick Gold or Silver</li>
+					<li>Enter weight, purity, and current market rate</li>
+					<li>Get an instant estimate</li>
+				</ol>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<small>© <span id="year"></span> Divika Jewellers. For estimation purposes only.</small>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+	</html>

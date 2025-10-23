@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart • Divika Jewellers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a class="logo" href="index.html" aria-label="Divika Jewellers Home">
+            <img src="Logo.png" alt="Divika Jewellers Logo" class="logo-img" />
+          </a>
+          <div class="brand-text">
+            <h1>Divika Jewellers</h1>
+            <p class="subtitle">Cart</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="nav">
+            <a class="nav-link" href="gold.html">Gold</a>
+            <a class="nav-link" href="Silver.html">Silver</a>
+          </nav>
+          <button id="cart-header-btn" class="cart-header-btn" title="View Cart">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container narrow">
+      <section class="calc-card">
+        <h2>Your Cart</h2>
+        <div id="full-cart">
+          <div id="full-cart-empty" class="hint hidden">Your cart is empty. Go to the Gold or Silver page to add items.</div>
+          <div id="full-cart-list"></div>
+          <div id="full-cart-summary" class="result mt-10 hidden"></div>
+          
+          <!-- Invoice Details Section -->
+          <div id="invoice-details" class="mt-24 hidden">
+            <h3>Invoice Details</h3>
+            <div class="calc-form">
+              <div class="form-row">
+                <label for="invoice-number">Invoice Number</label>
+                <input type="text" id="invoice-number" placeholder="e.g., INV-001" />
+              </div>
+              <div class="form-row">
+                <label for="invoice-date">Invoice Date</label>
+                <input type="text" id="invoice-date" placeholder="MM/DD/YYYY" />
+              </div>
+              <div class="form-row">
+                <label for="billed-to">Billed To (Name)</label>
+                <input type="text" id="billed-to" placeholder="Customer Name" />
+              </div>
+              <div class="form-row">
+                <label for="billed-phone">Phone Number</label>
+                <input type="text" id="billed-phone" placeholder="Phone (optional)" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="action-row mt-10">
+            <a href="gold.html" class="btn btn-secondary">Back to Gold</a>
+            <button type="button" id="download-invoice" class="btn btn-primary">Download Invoice</button>
+            <button type="button" id="clear-cart" class="btn btn-ghost">Clear Cart</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+  <small>© <span id="year"></span> Divika Jewellers. Estimates only.</small>
+      </div>
+    </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+  </body>
+  </html>

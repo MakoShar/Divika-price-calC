@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title">Gold Price Calculator • Divika Jewellers</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Calculate gold jewelry price by weight, karat, and market rate." />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a class="logo" href="index.html" aria-label="Divika Jewellers Home" id="home-logo">
+            <img src="Logo.png" alt="Divika Jewellers Logo" class="logo-img" />
+          </a>
+          <div class="brand-text">
+            <h1>Divika Jewellers</h1>
+            <p class="subtitle">Gold Price Calculator</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="nav">
+            <a class="nav-link active" href="gold.html">Gold</a>
+            <a class="nav-link" href="Silver.html">Silver</a>
+          </nav>
+          <button id="cart-header-btn" class="cart-header-btn" title="View Cart">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container narrow">
+      <section class="calc-card">
+        <h2>Gold Calculator</h2>
+        <form id="gold-form" class="calc-form" autocomplete="on">
+          <div class="form-row">
+            <label for="gold-rate">Live Rate (LR) per gram</label>
+            <div class="input-with-unit">
+              <input id="gold-rate" name="rate" type="number" step="0.01" min="0" placeholder="e.g., 6200" required />
+              <div class="btn-inline-group">
+                <button type="button" id="gold-fetch" class="btn btn-secondary" title="Fetch live rate">Fetch Live Rate</button>
+                <button type="button" id="gold-clear-rate" class="btn btn-ghost" title="Clear today's stored rate">Clear</button>
+              </div>
+            </div>
+            <small class="hint">You can enter the rate manually or fetch from an API.</small>
+          </div>
+
+          <div class="form-row">
+            <label for="gold-karat">Purity (P)</label>
+            <select id="gold-karat" name="karat">
+              <option value="1.00">24K (1000)</option>
+              <option value="0.93">22K (916)</option>
+              <option value="0.89" selected>20K (833)</option>
+              <option value="0.80">18K (800)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="gold-weight">Weight (W) in grams</label>
+            <div class="input-with-unit">
+              <input id="gold-weight" name="weight" type="number" step="0.01" min="0" placeholder="e.g., 10" required />
+              <span class="unit">g</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="gold-additional">Additional Charges</label>
+            <div class="input-with-unit">
+              <input id="gold-additional" name="additional" type="number" step="0.01" min="0" placeholder="e.g., 100" />
+              <span class="unit">₹</span>
+            </div>
+            <small class="hint">Optional fixed charges added to the final estimate (e.g., shipping, handling).</small>
+          </div>
+
+
+
+          <div class="form-row inline">
+            <label for="gold-making">Making (E) per gram</label>
+            <input id="gold-making" name="makingPerGram" type="number" step="0.01" min="0" placeholder="e.g., 100" />
+          </div>
+
+          <div class="form-row inline">
+            <label for="gold-labor">Labor (L) %</label>
+            <input id="gold-labor" name="laborPercent" type="number" step="0.01" min="0" placeholder="e.g., 15" value="15" />
+            <small class="hint">Enter labor/tax percentage (e.g., 15 for 15%).</small>
+          </div>
+
+          
+
+          <div class="action-row">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="reset" class="btn btn-ghost">Reset</button>
+          </div>
+        </form>
+
+        <div id="gold-result" class="result" aria-live="polite"></div>
+        <div class="action-row mt-10 hidden" id="cart-actions">
+          <button type="button" class="btn btn-secondary" id="add-to-cart">Add to Cart</button>
+        </div>
+        <div id="cart-section" class="mt-24 hidden">
+          <h3>Cart</h3>
+          <ul id="cart-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+  <small>© <span id="year"></span> Divika Jewellers. Estimates only.</small>
+      </div>
+    </footer>
+
+    <!-- Cart Drawer and Overlay -->
+    <div id="overlay" class="overlay hidden" aria-hidden="true"></div>
+    <aside id="cart-drawer" class="cart-drawer hidden" aria-hidden="true" aria-label="Cart Drawer">
+      <div class="cart-drawer-header">
+        <h3>Your Cart</h3>
+        <button id="drawer-close" class="btn btn-ghost" aria-label="Close">✕</button>
+      </div>
+      <div id="drawer-list" class="cart-drawer-body"></div>
+      <div class="cart-drawer-footer">
+        <a href="cart.html" class="btn btn-primary" id="view-full-cart">View full cart</a>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
